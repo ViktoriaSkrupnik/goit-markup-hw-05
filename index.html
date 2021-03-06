@@ -32,9 +32,15 @@
                         class="header-logo">Studio</span></a>
     
                 <ul class="site-nav">
-                    <li class="link"><a class="header-link" href="./index.html">Студия</a> </li>
+                                            
+                    <li class="link"><a class="header-link current" href="./index.html">Студия</a> </li>
+                    
+                    
                     <li class="link"><a class="header-link" href="./portfolio.html">Портфолио</a></li>
+                    
+                   
                     <li class="link"><a class="header-link" href="">Контакты</a></li>
+                   
                 </ul>
             </nav>
             <ul class="site-contact">
@@ -67,7 +73,7 @@
             <section class="section-hero">
                 <div class="conteiner-hero">
                 <h1 class="section-text">ЭФФЕКТИВНЫЕ РЕШЕНИЯ <br> ДЛЯ ВАШЕГО БИЗНЕСА</h1>
-        <button href=""  class="section-button" >Заказать услугу</button>
+        <button href=""  class="section-button" data-modal-open >Заказать услугу</button>
 
                 </div>
 
@@ -136,9 +142,24 @@
             <div class="conteiner-work">
        <h2 class="work">Чем мы занимаемся</h2>
        <ul class="work-item">
+           <div class="work-div">
            <li class="work-img"><img src="./images/box 1.jpg" alt="человек за компьютером и планшетом" width="370" height="294"></li>
+           <div class="work-menu">
+               <p class="work-name">Десктопные приложения</p>
+           </div>
+        </div>
+        <div class="work-div">
            <li class="work-img"><img src="./images/img-2.jpg" alt="человек с ноутбуком и телефоном" width="370" height="294"></li>
+           <div class="work-menu">
+               <p class="work-name">Мобильные приложения</p>
+           </div>
+        </div>
+        <div class="work-div">
            <li class="work-img"><img src="./images/img-3.jpg" alt="человек с планшетом" width="370" height="294"></li>
+           <div class="work-menu">
+               <p class="work-name">Дизайнерские решения</p>
+           </div>
+        </div>
        </ul>
        </div>
         </section>
@@ -444,6 +465,34 @@
 
     </section>
 </footer>
+<div data-modal class="backdrop is-hidden" >
+    <div class="modal"  >
+    
+        <button data-modal-close  type="button" class="modal-button">
+                <svg class="svg-modal"  wght="11" height="11" >
+                    <use href="images/symbol-defs.svg#icon-Vector-2"></use>
+                </svg>
+
+        </button> 
+    
+    </div>
+</div>
+<script  src="modal.js">
+    (() => {
+            const refs = {
+                openModalBtn: document.querySelector('[data-modal-open]'),
+                closeModalBtn: document.querySelector('[data-modal-close]'),
+                modal: document.querySelector('[data-modal]'),
+            };
+
+            refs.openModalBtn.addEventListener('click', toggleModal);
+            refs.closeModalBtn.addEventListener('click', toggleModal);
+
+            function toggleModal() {
+                refs.modal.classList.toggle('is-hidden');
+            }
+        })();
+</script>
     
 </body>
 </html>
